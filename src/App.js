@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useLayoutEffect } from 'react'
 
-function App() {
+const App = () => {
+  const products = [
+    {
+      id:1,
+      title:"html"
+    },
+    {
+      id:2,
+      title:"css"
+    },
+    {
+      id:3,
+      title:"Bootstrap"
+    },
+    {
+      id:4,
+      title:"javascript"
+    }
+
+  ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        {
+          products.map((product)=>{
+            return <Products product = {product}></Products>
+          })
+        }
     </div>
-  );
+  )
 }
 
-export default App;
+
+function Products (props) {
+  return <ul>
+    <li>
+      <p>{props.product.title}</p>
+    </li>
+  </ul>
+}
+
+export default App
